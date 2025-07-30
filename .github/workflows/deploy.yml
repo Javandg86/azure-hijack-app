@@ -1,0 +1,24 @@
+name: OIDC Exploit Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Deploy to Azure
+      uses: Azure/static-web-apps-deploy@v1
+      with:
+        app_location: "/"
+        output_location: "/"
+        azure_static_web_apps_api_token: "12345cbb198a77a092ff885781a62a15d51ef5e3654ca11234509ab54547270704-4140ccee-e04f-424f-b4ca-3d4dd123459c00f0702071d12345"
