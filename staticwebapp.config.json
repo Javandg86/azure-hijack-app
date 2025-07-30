@@ -1,0 +1,17 @@
+{
+  "routes": [
+    {
+      "route": "/*",
+      "allowedRoles": ["anonymous"],
+      "rewrite": "/index.html"
+    }
+  ],
+  "responseOverrides": {
+    "401": {
+      "rewrite": "/index.html"
+    },
+    "403": {
+      "rewrite": "/index.html"
+    }
+  }
+}
